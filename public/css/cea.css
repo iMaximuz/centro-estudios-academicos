@@ -1,0 +1,77 @@
+/* ====================================================
+Recreating the email field from https://webflow.com/cms. Just an experiment - not as cross-browser friendly as the original.
+Changed:
+- animated gradient bar to :after element
+- flexbox for layout
+==================================================== */
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 1600px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+@keyframes gradient { 
+  from { background-position:0 0; }
+  to { background-position:100% 0; }
+}
+
+.webflow-style-input {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 2px;
+  padding: 1.4rem 2rem 1.6rem;
+  background: #f7f6f4
+}
+.webflow-style-input::after {
+    content: "";
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 999;
+    height: 2px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    background-position: 0% 0%;
+    background: linear-gradient(to right, #ef8376, #f45e4e, #FEFFB8, #f45e4e, #ef8376, #f45e4e);
+    background-size: 500% auto;
+    animation: gradient 3s linear infinite;
+  }
+
+.webflow-style-input input {
+  flex-grow: 1;
+  color: #f45e4e;
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+  vertical-align: middle;
+  border-style: none; background: transparent; outline: none;
+}
+
+.webflow-style-input input::-webkit-input-placeholder {
+    color: #7881A1;
+  }
+
+.webflow-style-input button {
+  color:  #7881A1;
+  font-size: 2.4rem;
+  line-height: 2.4rem;
+  vertical-align: middle;
+  transition: color .25s;
+  padding: 0; background: none; border: none; outline: none;
+}
+
+.webflow-style-input button:hover {
+    color: #ef8376;
+  }
+
+.user-card header {
+	text-align: center;
+}
